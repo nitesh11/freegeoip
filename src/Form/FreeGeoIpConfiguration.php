@@ -18,7 +18,7 @@ class FreeGeoIpConfiguration extends ConfigFormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $config = \Drupal::config('freegeoip.settings');
+  	$config = $this->config('freegeoip.settings');
 
     $form['description'] = array(
 	    '#type' => 'item',
@@ -58,7 +58,7 @@ class FreeGeoIpConfiguration extends ConfigFormBase {
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-  	$config = \Drupal::config('freegeoip.settings');
+  	$config = $this->config('freegeoip.settings');
     $userInputValues = $form_state->getUserInput();
 
     $config->set('freegeoip_url', $userInputValues['freegeoip_url']);
